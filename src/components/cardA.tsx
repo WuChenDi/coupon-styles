@@ -35,7 +35,6 @@ export default defineComponent({
 
       const { width, height } = (cardRef as unknown as Ref<HTMLDivElement>).value.getBoundingClientRect()
 
-      console.log(123)
       state.width = width
       state.height = height
     })
