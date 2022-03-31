@@ -16,12 +16,6 @@ export default ({ command }: ConfigEnv): UserConfig => {
       target: 'es2015',
       outDir: 'dist',
       assetsDir: 'assetsCDN',
-      terserOptions: {
-        compress: {
-          keep_infinity: true,
-          drop_console: false
-        }
-      },
       brotliSize: false,
       chunkSizeWarningLimit: 2000
     },
