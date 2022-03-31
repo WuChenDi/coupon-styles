@@ -7,7 +7,7 @@ export default defineComponent({
       <footer
         style={{ padding: '2rem', marginTop: 'auto', fontSize: '1.2rem' }}
       >
-        © 2021 made by
+        © 2022 made by
         <a href='https://github.com/WuChenDi' target='_blank'>
           WuChenDi
         </a>
