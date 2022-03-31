@@ -6,7 +6,7 @@ Developed with Vue 3 + Typescript + Vite
 
 ![image](./screenshots/indexNew.png)
 
-<!-- [online preview](https://coupon.codelabo.cn) -->
+[online preview](wuchendi.github.io/coupon-styles/)
 
 In the project directory, you can run:
 
