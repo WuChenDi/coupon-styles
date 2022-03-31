@@ -1,4 +1,4 @@
-import { ref, reactive, computed, onMounted, defineComponent, Ref } from 'vue'
+import { ref, reactive, computed, onMounted, defineComponent, Ref, watchEffect } from 'vue'
 import Pre from './pre.vue'
 
 export default defineComponent({
@@ -34,6 +34,8 @@ export default defineComponent({
     })
 
     const cardRef: Ref<HTMLDivElement | null> = ref(null)
+    const rangeRef: Ref<HTMLDivElement | null> = ref(null)
+    const gapRef: Ref<HTMLDivElement | null> = ref(null)
 
     onMounted(() => {
       if (!(cardRef as unknown as Ref<HTMLDivElement>).value) return
@@ -41,6 +43,11 @@ export default defineComponent({
       const { width, height } = (cardRef as unknown as Ref<HTMLDivElement>).value.getBoundingClientRect()
 
       state.max = Math.min(width, height) / 2
+    })
+
+    watchEffect(() => {
+      ;(rangeRef as unknown as Ref<HTMLDivElement>).value?.style.setProperty('--percent', `${state.radius / state.max}`)
+      ;(gapRef as unknown as Ref<HTMLDivElement>).value?.style.setProperty('--percent', `${state.gap / state.max}`)
     })
 
     return () => (
@@ -51,13 +58,7 @@ export default defineComponent({
         <aside class='side'>
           <section class='item'>
             <span class='name'>radius</span>
-            <input
-              type='range'
-              v-model={state.radius}
-              data-tips={state.radius + 'px'}
-              style={{ '--percent': state.radius / state.max }}
-              max={state.max}
-            />
+            <input type='range' ref={rangeRef} v-model={state.radius} data-tips={state.radius + 'px'} max={state.max} />
           </section>
           <section class='item'>
             <span class='name'>direction</span>
@@ -73,7 +74,7 @@ export default defineComponent({
           </section>
           <section class='item'>
             <span class='name'>gap</span>
-            <input type='range' v-model={state.gap} data-tips={state.gap + 'px'} style={{ '--percent': state.gap / state.max }} max={state.max} />
+            <input type='range' ref={gapRef} v-model={state.gap} data-tips={state.gap + 'px'} max={state.max} />
           </section>
           <Pre style={{ style }} />
         </aside>

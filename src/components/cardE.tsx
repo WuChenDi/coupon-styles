@@ -1,5 +1,7 @@
-import { ref, reactive, computed, onMounted, defineComponent, Ref } from 'vue'
+import { ref, reactive, computed, onMounted, defineComponent, Ref, watchEffect } from 'vue'
 import Pre from './pre.vue'
+
+type Direction = 'horizontal' | 'vertical' | 'both'
 
 export default defineComponent({
   name: 'cardE',
@@ -26,7 +28,7 @@ export default defineComponent({
       }
       return {
         '-webkit-mask-image':
-          image[state.direction as 'horizontal' | 'vertical' | 'both'] +
+          image[state.direction as Direction] +
           `, radial-gradient(circle at ${state.corner}px ${state.corner}px, red ${state.corner}px, transparent ${state.corner}.5px)`,
         '-webkit-mask-position':
           (state.direction === 'both' ? `-${state.radius}px, 50% -${state.radius}px` : postion) + `, -${state.corner}px -${state.corner}px`,
@@ -37,12 +39,21 @@ export default defineComponent({
     })
 
     const cardRef: Ref<HTMLDivElement | null> = ref(null)
+    const cornerRef: Ref<HTMLDivElement | null> = ref(null)
+    const cornerRef1: Ref<HTMLDivElement | null> = ref(null)
+    const gapRef: Ref<HTMLDivElement | null> = ref(null)
 
     onMounted(() => {
       if (!(cardRef as unknown as Ref<HTMLDivElement>).value) return
 
       const { width, height } = (cardRef as unknown as Ref<HTMLDivElement>).value.getBoundingClientRect()
       state.max = Math.min(width, height) / 2
+    })
+
+    watchEffect(() => {
+      ;(cornerRef as unknown as Ref<HTMLDivElement>).value?.style.setProperty('--percent', `${state.corner / state.max}`)
+      ;(cornerRef1 as unknown as Ref<HTMLDivElement>).value?.style.setProperty('--percent', `${state.radius / state.corner}`)
+      ;(gapRef as unknown as Ref<HTMLDivElement>).value?.style.setProperty('--percent', `${state.gap / state.max}`)
     })
 
     return () => (
@@ -53,23 +64,11 @@ export default defineComponent({
         <aside class='side'>
           <section class='item'>
             <span class='name'>corner</span>
-            <input
-              type='range'
-              v-model={state.corner}
-              data-tips={state.corner + 'px'}
-              style={{ '--percent': state.corner / state.max }}
-              max={state.max}
-            />
+            <input type='range' ref={cornerRef} v-model={state.corner} data-tips={state.corner + 'px'} max={state.max} />
           </section>
           <section class='item'>
             <span class='name'>radius</span>
-            <input
-              type='range'
-              v-model={state.corner}
-              data-tips={state.radius + 'px'}
-              style={{ '--percent': state.radius / state.corner }}
-              max={state.corner}
-            />
+            <input type='range' ref={cornerRef1} v-model={state.radius} data-tips={state.radius + 'px'} max={state.corner} />
           </section>
           <section class='item'>
             <span class='name'>direction</span>
@@ -85,7 +84,7 @@ export default defineComponent({
           </section>
           <section class='item'>
             <span class='name'>gap</span>
-            <input type='range' v-model={state.gap} data-tips={state.gap + 'px'} style={{ '--percent': state.gap / state.max }} max={state.max} />
+            <input type='range' ref={gapRef} v-model={state.gap} data-tips={state.gap + 'px'} max={state.max} />
           </section>
           <Pre style={{ style }} />
         </aside>

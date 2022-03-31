@@ -1,4 +1,4 @@
-import { ref, reactive, computed, onMounted, defineComponent, Ref, nextTick } from 'vue'
+import { ref, reactive, computed, onMounted, defineComponent, Ref, nextTick, watchEffect } from 'vue'
 import Pre from './pre.vue'
 
 export default defineComponent({
@@ -15,6 +15,7 @@ export default defineComponent({
     }))
 
     const cardRef: Ref<HTMLDivElement | null> = ref(null)
+    const rangeRef: Ref<HTMLDivElement | null> = ref(null)
 
     onMounted(() => {
       if (!(cardRef as unknown as Ref<HTMLDivElement>).value) return
@@ -22,6 +23,11 @@ export default defineComponent({
       const { width, height } = (cardRef as unknown as Ref<HTMLDivElement>).value.getBoundingClientRect()
 
       state.max = Math.min(width, height) / 2
+    })
+
+    watchEffect(() => {
+      if (!(rangeRef as unknown as Ref<HTMLDivElement>).value) return
+      ;(rangeRef as unknown as Ref<HTMLDivElement>).value.style.setProperty('--percent', `${state.corner / state.max}`)
     })
 
     return () => (
@@ -32,13 +38,7 @@ export default defineComponent({
         <aside class='side'>
           <section class='item'>
             <span class='name'>corner</span>
-            <input
-              type='range'
-              v-model={state.corner}
-              data-tips={state.corner + 'px'}
-              style={{ '--percent': state.corner / state.max }}
-              max={state.max}
-            />
+            <input type='range' ref={rangeRef} v-model={state.corner} data-tips={state.corner + 'px'} max={state.max} />
           </section>
           <Pre style={{ style }} />
         </aside>

@@ -1,4 +1,4 @@
-import { ref, reactive, computed, onMounted, defineComponent, Ref } from 'vue'
+import { ref, reactive, computed, onMounted, defineComponent, Ref, watchEffect } from 'vue'
 import Pre from './pre.vue'
 
 export default defineComponent({
@@ -29,6 +29,8 @@ export default defineComponent({
     })
 
     const cardRef: Ref<HTMLDivElement | null> = ref(null)
+    const rangeRef: Ref<HTMLDivElement | null> = ref(null)
+    const offsetRef: Ref<HTMLDivElement | null> = ref(null)
 
     onMounted(() => {
       if (!(cardRef as unknown as Ref<HTMLDivElement>).value) return
@@ -37,6 +39,11 @@ export default defineComponent({
 
       state.width = width
       state.height = height
+    })
+
+    watchEffect(() => {
+      ;(rangeRef as unknown as Ref<HTMLDivElement>).value?.style.setProperty('--percent', `${state.radius / max.value.radius}`)
+      ;(offsetRef as unknown as Ref<HTMLDivElement>).value?.style.setProperty('--percent', `${state.offset / max.value.offset}`)
     })
 
     const max = computed(() => ({
@@ -52,13 +59,7 @@ export default defineComponent({
         <aside class='side'>
           <section class='item'>
             <span class='name'>radius</span>
-            <input
-              type='range'
-              v-model={state.radius}
-              data-tips={state.radius + 'px'}
-              style={{ '--percent': state.radius / max.value.radius }}
-              max={max.value.radius}
-            />
+            <input type='range' ref={rangeRef} v-model={state.radius} data-tips={state.radius + 'px'} max={max.value.radius} />
           </section>
           <section class='item'>
             <span class='name'>direction</span>
@@ -83,13 +84,7 @@ export default defineComponent({
           </section>
           <section class='item' v-show={state.position !== 'center'}>
             <span class='name'>offset</span>
-            <input
-              type='range'
-              v-model={state.offset}
-              data-tips={state.offset + 'px'}
-              style={{ '--percent': state.offset / max.value.offset }}
-              max={max.value.offset}
-            />
+            <input type='range' ref={offsetRef} v-model={state.offset} data-tips={state.offset + 'px'} max={max.value.offset} />
           </section>
           <Pre style={{ style }} />
         </aside>
