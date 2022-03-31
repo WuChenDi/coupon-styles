@@ -12,6 +12,7 @@ export default ({ command }: ConfigEnv): UserConfig => {
   console.log('command:', command)
 
   return {
+    base: './',
     build: {
       target: 'es2015',
       outDir: 'dist',
