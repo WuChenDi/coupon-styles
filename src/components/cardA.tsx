@@ -69,7 +69,7 @@ export default defineComponent({
               <input type='radio' name='dir' value='vertical' v-model={state.direction} />
             </label>
           </section>
-          <section class='item' direction={state.direction}>
+          <section class='item' data-direction={state.direction}>
             <span class='name'>position</span>
             <label class='radio' data-tips={state.direction == 'vertical' ? 'left' : 'top'}>
               <input type='radio' name='pos' value='start' v-model={state.position} />
