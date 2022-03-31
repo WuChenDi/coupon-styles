@@ -14,6 +14,8 @@ export default defineComponent({
       '-webkit-mask-position': `-${state.corner}px -${state.corner}px`
     }))
 
+    console.log(style)
+
     const card: Ref<HTMLDivElement | null> = ref(null)
 
     onMounted(() => {
@@ -27,7 +29,7 @@ export default defineComponent({
     return () => (
       <main class='main'>
         <div class='card-con'>
-          <div class='card' style={{ style: style.value }} ref='card'></div>
+          <div class='card' style={{ ...style.value }} ref='card'></div>
         </div>
         <aside class='side'>
           <section class='item'>
