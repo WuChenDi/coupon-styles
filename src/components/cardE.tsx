@@ -36,19 +36,19 @@ export default defineComponent({
       }
     })
 
-    const card: Ref<HTMLDivElement | null> = ref(null)
+    const cardRef: Ref<HTMLDivElement | null> = ref(null)
 
     onMounted(() => {
-      if (!(card as unknown as Ref<HTMLDivElement>).value) return
+      if (!(cardRef as unknown as Ref<HTMLDivElement>).value) return
 
-      const { width, height } = (card as unknown as Ref<HTMLDivElement>).value.getBoundingClientRect()
+      const { width, height } = (cardRef as unknown as Ref<HTMLDivElement>).value.getBoundingClientRect()
       state.max = Math.min(width, height) / 2
     })
 
     return () => (
       <main class='main'>
         <div class='card-con'>
-          <div class='card' style={{ ...style.value }} ref='card'></div>
+          <div class='card' style={{ ...style.value }} ref={card}></div>
         </div>
         <aside class='side'>
           <section class='item'>

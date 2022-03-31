@@ -1,4 +1,4 @@
-import { ref, reactive, computed, onMounted, defineComponent, Ref } from 'vue'
+import { ref, reactive, computed, onMounted, defineComponent, Ref, nextTick } from 'vue'
 import Pre from './pre.vue'
 
 export default defineComponent({
@@ -6,7 +6,7 @@ export default defineComponent({
   setup() {
     const state = reactive({
       corner: 20,
-      max: 0
+      max: 100
     })
 
     const style = computed(() => ({
@@ -14,14 +14,12 @@ export default defineComponent({
       '-webkit-mask-position': `-${state.corner}px -${state.corner}px`
     }))
 
-    console.log(style)
-
-    const card: Ref<HTMLDivElement | null> = ref(null)
+    const cardRef: Ref<HTMLDivElement | null> = ref(null)
 
     onMounted(() => {
-      if (!(card as unknown as Ref<HTMLDivElement>).value) return
+      if (!(cardRef as unknown as Ref<HTMLDivElement>).value) return
 
-      const { width, height } = (card as unknown as Ref<HTMLDivElement>).value.getBoundingClientRect()
+      const { width, height } = (cardRef as unknown as Ref<HTMLDivElement>).value.getBoundingClientRect()
 
       state.max = Math.min(width, height) / 2
     })
@@ -29,7 +27,7 @@ export default defineComponent({
     return () => (
       <main class='main'>
         <div class='card-con'>
-          <div class='card' style={{ ...style.value }} ref='card'></div>
+          <div class='card' style={{ ...style.value }} ref={cardRef}></div>
         </div>
         <aside class='side'>
           <section class='item'>

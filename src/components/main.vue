@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, computed } from 'vue'
+import { reactive, computed, onMounted } from 'vue'
 import CardA from './cardA'
 import CardB from './cardB'
 import CardC from './cardC'
