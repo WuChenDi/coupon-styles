@@ -6,7 +6,7 @@ Developed with Vue 3 + Typescript + Vite
 
 ![image](./screenshots/index.png)
 
-[online preview](https://coupon.codelabo.cn)
+<!-- [online preview](https://coupon.codelabo.cn) -->
 
 In the project directory, you can run:
 
