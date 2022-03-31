@@ -4,7 +4,7 @@ Generate coupon style coding
 
 Developed with Vue 3 + Typescript + Vite
 
-![image](./screenshots/index.png)
+![image](./screenshots/indexNew.png)
 
 <!-- [online preview](https://coupon.codelabo.cn) -->
 
