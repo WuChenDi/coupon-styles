@@ -124,7 +124,7 @@ export default defineComponent({
           </section>
           <section class='item'>
             <span class='name'>dashoffset</span>
-            <input type='range' ref={sizeRef} v-model={state.size} data-tips={state.gap + 'px'} max={2 * state.radius} />
+            <input type='range' ref={sizeRef} v-model={state.gap} data-tips={state.gap + 'px'} max={2 * state.radius} />
           </section>
           <Pre style={{ style }} />
         </aside>
