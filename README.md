@@ -1,21 +1,38 @@
-# Coupon-styles
+<h1 align="center">Coupon-styles</h1>
 
-Generate coupon style coding
+<p align="center">Generate coupon style coding</p>
 
-Developed with Vue 3 + Typescript + Vite
+[![image](./screenshots/indexNew.png)](https://wuchendi.github.io/coupon-styles/)
 
-![image](./screenshots/indexNew.png)
+English | [简体中文](./README-zh_CN.md)
 
-[online preview](https://wuchendi.github.io/coupon-styles/)
+## ✨ Features
 
-In the project directory, you can run:
+- 🛡 Developed with Vue 3 + Typescript + Vite
+
+## 🎯 Compatible Environments
+
+[![image](./screenshots/browser_compatibility.png)](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image#browser_compatibility)
+
+## 💻 Local debugging
 
 ```bash
-npm install
-npm run dev
+$ git clone https://github.com/WuChenDi/coupon-styles.git
+$ cd coupon-styles
+$ npm install
+$ npm run dev
 ```
 
-Then open http://localhost:3000
+> 📢 npm access speed is slow, recommend using cnpm or specifying a mirror registry.
+>
+> 📢 requires Node.js version >=12.2.0
+>
+> 📢 Then open http://localhost:3000
+
+## 🤝 Participate in co-construction
+
+If you are interested in this project, welcome to make a pull request and also welcome "Star" support ^\_^
 
 <!-- ↓ Reference -->
 <!-- https://github.com/XboxYan/coupon -->
+<!-- https://github.com/alibaba/lowcode-engine.git -->
