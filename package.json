@@ -1,7 +1,10 @@
 {
   "name": "coupon-styles",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
+  "description": "Generate coupon style coding",
+  "license": "MIT",
+  "author": "Di-got<https://github.com/WuChenDi>",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
