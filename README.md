@@ -25,7 +25,9 @@ $ npm run dev
 
 > 📢 npm access speed is slow, recommend using cnpm or specifying a mirror registry.
 >
-> 📢 requires Node.js version >=12.2.0
+> 📢 requires Node.js version >=14
+>
+> 📢 npm install -g pnpm
 >
 > 📢 Then open http://localhost:3000
 
