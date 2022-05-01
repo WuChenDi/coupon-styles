@@ -9,7 +9,7 @@ export default defineComponent({
       >
         © 2022 made by
         <a href='https://github.com/WuChenDi' target='_blank'>
-          WuChenDi
+          Di-got
         </a>
       </footer>
     )
