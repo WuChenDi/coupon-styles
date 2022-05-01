@@ -5,24 +5,27 @@ on:
       - main
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version: [15]
     steps:
-      - name: Checkout
-        uses: actions/checkout@main
-
+      - uses: actions/checkout@v2
       - name: 下载 git submodule
         uses: srt32/git-actions@v0.0.3
         with:
           args: git submodule update --init --recursive
 
-      - name: 使用 Node.js 14
-        uses: actions/setup-node@v1
+      - uses: pnpm/action-setup@v2.0.1
         with:
-          node-version: 14
-
-      - name: npm install
-        run: |
-          npm install
+          version: 7.0.0
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
         env:
           CI: true
 
