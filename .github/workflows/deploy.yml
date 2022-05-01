@@ -10,7 +10,9 @@ jobs:
       matrix:
         node-version: [15]
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@main
+
       - name: 下载 git submodule
         uses: srt32/git-actions@v0.0.3
         with:
