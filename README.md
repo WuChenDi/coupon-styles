@@ -19,8 +19,8 @@ English | [简体中文](./README-zh_CN.md)
 ```bash
 $ git clone https://github.com/WuChenDi/coupon-styles.git
 $ cd coupon-styles
-$ npm install
-$ npm run dev
+$ pnpm install
+$ pnpm dev
 ```
 
 > 📢 npm access speed is slow, recommend using cnpm or specifying a mirror registry.

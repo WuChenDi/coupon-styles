@@ -19,8 +19,8 @@
 ```bash
 $ git clone https://github.com/WuChenDi/coupon-styles.git
 $ cd coupon-styles
-$ npm install
-$ npm run dev
+$ pnpm install
+$ pnpm dev
 ```
 
 > 📢 npm 访问速度较慢，建议使用 cnpm 或者指定镜像 registry。
