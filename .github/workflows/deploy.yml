@@ -10,31 +10,24 @@ jobs:
       matrix:
         node-version: [15]
     steps:
-      - name: Checkout
-        uses: actions/checkout@main
+    - uses: actions/checkout@v2
+    - uses: pnpm/action-setup@v2.0.1
+      with:
+        version: 7.0.0
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'pnpm'
+    - name: Install dependencies
+      run: pnpm install
+      env:
+        CI: true
 
-      - name: 下载 git submodule
-        uses: srt32/git-actions@v0.0.3
-        with:
-          args: git submodule update --init --recursive
-
-      - uses: pnpm/action-setup@v2.0.1
-        with:
-          version: 7.0.0
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-      - name: Install dependencies
-        run: pnpm install
-        env:
-          CI: true
-
-      - name: Build 🚀
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
-          full_commit_message: ${{ github.event.head_commit.message }}
+    - name: Build 🚀
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        publish_branch: gh-pages
+        full_commit_message: ${{ github.event.head_commit.message }}
