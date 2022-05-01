@@ -30,7 +30,7 @@ const state = reactive({
 const pre: any = ref(null)
 const txt: any = ref(null)
 
-let timer: number | null | undefined = null
+let timer: NodeJS.Timeout
 
 const copy = () => {
   if (!txt.value && !pre.value) return
