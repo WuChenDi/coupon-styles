@@ -35,6 +35,10 @@ $ pnpm dev
 
 If you are interested in this project, welcome to make a pull request and also welcome "Star" support ^\_^
 
+## License
+
+MIT
+
 <!-- ↓ Reference -->
 <!-- https://github.com/XboxYan/coupon -->
 <!-- https://github.com/alibaba/lowcode-engine.git -->
