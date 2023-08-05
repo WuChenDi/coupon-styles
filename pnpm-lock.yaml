@@ -25,9 +25,15 @@ devDependencies:
   '@vitejs/plugin-vue-jsx':
     specifier: ^3.0.1
     version: 3.0.1(vite@4.4.5)(vue@3.3.4)
+  eslint:
+    specifier: ^8.46.0
+    version: 8.46.0
   path:
     specifier: ^0.12.7
     version: 0.12.7
+  prettier:
+    specifier: ^3.0.1
+    version: 3.0.1
   typescript:
     specifier: ^5.0.2
     version: 5.0.2
