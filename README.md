@@ -4,7 +4,7 @@
 
 [![image](./screenshots/indexNew.png)](https://wuchendi.github.io/coupon-styles/)
 
-English | [简体中文](./README-zh_CN.md)
+<!-- English | [简体中文](./README-zh_CN.md) -->
 
 ## ✨ Features
 
@@ -35,9 +35,9 @@ $ pnpm dev
 
 If you are interested in this project, welcome to make a pull request and also welcome "Star" support ^\_^
 
-## License
+## 📜 License
 
-MIT
+[MIT](./LICENSE) License &copy; 2023-PRESENT [WuChenDi](https://github.com/WuChenDi)
 
 <!-- ↓ Reference -->
 <!-- https://github.com/XboxYan/coupon -->

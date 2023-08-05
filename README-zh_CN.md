@@ -35,9 +35,9 @@ $ pnpm dev
 
 如果您对这个项目感兴趣，欢迎提 pull request，也欢迎 "Star" 支持一下 ^\_^
 
-## License
+## 📜 License
 
-MIT
+[MIT](./LICENSE) License &copy; 2023-PRESENT [WuChenDi](https://github.com/WuChenDi)
 
 <!-- ↓ Reference -->
 <!-- https://github.com/XboxYan/coupon -->
