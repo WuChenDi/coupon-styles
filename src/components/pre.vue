@@ -1,28 +1,12 @@
-<template>
-  <div class="pre-wrap" :class="{ copied: state.copied }">
-    <pre
-      class="pre"
-      ref="pre"
-    ><template v-for="(value, name, index) in style" :key="name">{{index!==0?'\n':''}}<code>{{name}}</code>: {{value}};</template></pre>
-    <button
-      data-tips="copy"
-      class="copy"
-      @click="copy"
-      :class="{ copied: state.copied }"
-    ></button>
-    <textarea tabindex="-1" class="hidden" ref="txt" readonly></textarea>
-  </div>
-</template>
-
 <script setup lang="ts">
-import { ref, reactive, Ref } from 'vue'
+import { ref, reactive } from 'vue'
 
 defineProps({
-  style: Object
+  style: Object,
 })
 
 const state = reactive({
-  copied: false
+  copied: false,
 })
 
 // const pre: Ref<HTMLPreElement | null> = ref(null)
@@ -46,11 +30,28 @@ const copy = () => {
 }
 </script>
 
+<template>
+  <div class="pre-wrap" :class="{ copied: state.copied }">
+    <pre
+      ref="pre"
+      class="pre"
+    ><template v-for="(value, name, index) in style" :key="name">{{ index !== 0 ? '\n' : '' }}<code>{{ name }}</code>: {{ value }};</template></pre>
+    <button
+      data-tips="copy"
+      class="copy"
+      :class="{ copied: state.copied }"
+      @click="copy"
+    ></button>
+    <textarea ref="txt" tabindex="-1" class="hidden" readonly></textarea>
+  </div>
+</template>
+
 <style scoped>
 .pre-wrap {
   position: relative;
   margin: 2rem 0;
 }
+
 .pre-wrap::after {
   content: '🎉 Copied to clipboard!';
   position: absolute;
@@ -61,10 +62,7 @@ const copy = () => {
   height: 100%;
   color: #f3f4f5;
   font-size: 1.5rem;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.2),
-      rgba(255, 255, 255, 0.2)
-    ),
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
     linear-gradient(var(--theme), var(--theme));
   opacity: 0;
   border-radius: 0.5rem;
@@ -74,10 +72,12 @@ const copy = () => {
   transition: 0.2s;
   z-index: 2;
 }
+
 .pre-wrap.copied::after {
   opacity: 1;
   visibility: visible;
 }
+
 .pre {
   padding: 1rem;
   background-color: #2c3e50;
@@ -90,17 +90,16 @@ const copy = () => {
   margin: 0;
   font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
 }
+
 code {
   color: transparent;
   font-family: inherit;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.6),
-      rgba(255, 255, 255, 0.6)
-    ),
+  background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
     linear-gradient(var(--theme), var(--theme));
   background-clip: text;
   -webkit-background-clip: text;
 }
+
 .copy {
   position: absolute;
   right: 0;
@@ -118,13 +117,18 @@ code {
     center no-repeat var(--theme);
   background-size: 1rem;
 }
+
 .copy:focus {
-  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.6), 0 0 0 0.25rem var(--theme);
+  box-shadow:
+    0 0 0 0.25rem rgba(255, 255, 255, 0.6),
+    0 0 0 0.25rem var(--theme);
 }
+
 .copy.copied {
   opacity: 0;
   visibility: hidden;
 }
+
 .hidden {
   position: absolute;
   opacity: 0;

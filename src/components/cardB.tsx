@@ -1,17 +1,18 @@
-import { ref, reactive, computed, onMounted, defineComponent, Ref, nextTick, watchEffect } from 'vue'
+import type { Ref } from 'vue'
+import { ref, reactive, computed, onMounted, defineComponent, watchEffect } from 'vue'
 import Pre from './pre.vue'
 
 export default defineComponent({
-  name: 'cardB',
+  name: 'CardB',
   setup() {
     const state = reactive({
       corner: 20,
-      max: 100
+      max: 100,
     })
 
     const style = computed(() => ({
       '-webkit-mask-image': `radial-gradient(circle at ${state.corner}px ${state.corner}px, transparent ${state.corner}px, red ${state.corner}.5px)`,
-      '-webkit-mask-position': `-${state.corner}px -${state.corner}px`
+      '-webkit-mask-position': `-${state.corner}px -${state.corner}px`,
     }))
 
     const cardRef: Ref<HTMLDivElement | null> = ref(null)
@@ -20,14 +21,19 @@ export default defineComponent({
     onMounted(() => {
       if (!(cardRef as unknown as Ref<HTMLDivElement>).value) return
 
-      const { width, height } = (cardRef as unknown as Ref<HTMLDivElement>).value.getBoundingClientRect()
+      const { width, height } = (
+        cardRef as unknown as Ref<HTMLDivElement>
+      ).value.getBoundingClientRect()
 
       state.max = Math.min(width, height) / 2
     })
 
     watchEffect(() => {
       if (!(rangeRef as unknown as Ref<HTMLDivElement>).value) return
-      ;(rangeRef as unknown as Ref<HTMLDivElement>).value.style.setProperty('--percent', `${state.corner / state.max}`)
+      ;(rangeRef as unknown as Ref<HTMLDivElement>).value.style.setProperty(
+        '--percent',
+        `${state.corner / state.max}`
+      )
     })
 
     return () => (
@@ -38,11 +44,17 @@ export default defineComponent({
         <aside class='side'>
           <section class='item'>
             <span class='name'>corner</span>
-            <input type='range' ref={rangeRef} v-model={state.corner} data-tips={state.corner + 'px'} max={state.max} />
+            <input
+              type='range'
+              ref={rangeRef}
+              v-model={state.corner}
+              data-tips={state.corner + 'px'}
+              max={state.max}
+            />
           </section>
           <Pre style={{ style }} />
         </aside>
       </main>
     )
-  }
+  },
 })
