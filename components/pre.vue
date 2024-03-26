@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
-
 defineProps({
   style: Object,
 })
@@ -9,22 +7,26 @@ const state = reactive({
   copied: false,
 })
 
-// const pre: Ref<HTMLPreElement | null> = ref(null)
-// const txt: Ref<HTMLTextAreaElement | null> = ref(null)
-const pre: any = ref(null)
-const txt: any = ref(null)
-
-let timer: NodeJS.Timeout
+const pre = ref<Nullable<HTMLPreElement>>(null)
+const txt = ref<Nullable<HTMLTextAreaElement>>(null)
+const timer = ref<Nullable<NodeJS.Timeout>>(null)
 
 const copy = () => {
-  if (!txt.value && !pre.value) return
+  if (!txt.value && !pre.value) {
+    return
+  }
 
-  txt.value.value = pre.value.textContent
-  txt.value.select()
+  if (pre.value?.textContent) {
+    // eslint-disable-next-line ts/ban-ts-comment
+    // @ts-expect-error
+    txt.value = pre.value?.textContent
+  }
+
+  txt.value?.select()
   document.execCommand('copy')
   state.copied = true
-  timer && clearTimeout(timer)
-  timer = setTimeout(() => {
+  timer.value && clearTimeout(timer.value)
+  timer.value = setTimeout(() => {
     state.copied = false
   }, 2000)
 }
@@ -49,7 +51,6 @@ const copy = () => {
 <style scoped>
 .pre-wrap {
   position: relative;
-  margin: 2rem 0;
 }
 
 .pre-wrap::after {
