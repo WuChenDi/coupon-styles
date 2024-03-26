@@ -8,7 +8,7 @@
 
 ## ✨ Features
 
-- 🛡 Developed with Vue 3 + Typescript + Vite
+- 🛡 Developed with [Nuxt](https://nuxt.com/)
 
 ## 🎯 Compatible Environments
 
