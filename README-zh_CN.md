@@ -17,10 +17,10 @@
 ## 💻 本地调试
 
 ```bash
-$ git clone https://github.com/WuChenDi/coupon-styles.git
-$ cd coupon-styles
-$ pnpm install
-$ pnpm dev
+git clone https://github.com/WuChenDi/coupon-styles.git
+cd coupon-styles
+pnpm install
+pnpm dev
 ```
 
 > 📢 npm 访问速度较慢，建议使用 cnpm 或者指定镜像 registry。
@@ -37,7 +37,7 @@ $ pnpm dev
 
 ## 📜 License
 
-[MIT](./LICENSE) License &copy; 2023-PRESENT [WuChenDi](https://github.com/WuChenDi)
+[MIT](./LICENSE) License &copy; 2023-PRESENT [wudi](https://github.com/WuChenDi)
 
 <!-- ↓ Reference -->
 <!-- https://github.com/XboxYan/coupon -->

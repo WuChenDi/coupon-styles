@@ -3,7 +3,7 @@ body {
 }
 html,
 body,
-#app {
+#__nuxt {
   height: 100%;
 }
 
@@ -11,7 +11,7 @@ body,
   --theme: #42b983;
 }
 
-#app {
+#__nuxt {
   display: flex;
   flex-direction: column;
   font-family: Avenir, Helvetica, Arial, sans-serif;

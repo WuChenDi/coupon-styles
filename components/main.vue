@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Component } from 'vue'
-import { reactive, computed } from 'vue'
 import CardA from './cardA'
 import CardB from './cardB'
 import CardC from './cardC'
@@ -18,12 +16,12 @@ const view = computed(() => {
     C: CardC,
     D: CardD,
     E: CardE,
-  }[state.type] as Component
+  }[state.type]
 })
 </script>
 
 <template>
-  <div class="nav">
+  <div class="m-8">
     <input v-model="state.type" type="radio" name="type" value="A" />
     <input v-model="state.type" type="radio" name="type" value="D" />
     <input v-model="state.type" type="radio" name="type" value="C" />

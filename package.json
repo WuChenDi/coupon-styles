@@ -1,31 +1,28 @@
 {
   "name": "coupon-styles",
-  "version": "1.6.0",
+  "version": "2.0.0",
+  "type": "module",
   "private": true,
   "description": "Generate coupon style coding",
   "license": "MIT",
   "author": "wudi",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview",
-    "lint:code": "eslint ./src/**/*.{vue,ts,tsx}",
-    "lint:fix": "eslint ./src/**/*.{vue,ts,tsx} --fix"
-  },
-  "dependencies": {
-    "vue": "^3.3.4"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@cdlab996/eslint-config-vue": "^0.0.4",
-    "@cdlab996/prettier-config": "^0.0.4",
-    "@types/node": "^20.4.7",
-    "@vitejs/plugin-vue": "^4.2.3",
-    "@vitejs/plugin-vue-jsx": "^3.0.1",
-    "eslint": "^8.46.0",
-    "path": "^0.12.7",
-    "prettier": "^3.0.1",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5",
-    "vue-tsc": "^1.8.5"
+    "@antfu/eslint-config": "^2.9.0",
+    "@cdlab996/prettier-config": "^0.0.5",
+    "@unocss/nuxt": "^0.58.6",
+    "eslint": "^8.57.0",
+    "nuxt": "^3.11.1",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0",
+    "vue-tsc": "^1"
   }
 }
