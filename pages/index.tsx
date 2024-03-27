@@ -5,7 +5,7 @@ import Main from '~/components/main.vue'
 import Footer from '~/components/footer'
 
 export default defineComponent({
-  name: 'App',
+  name: 'Index',
   setup() {
     return () => (
       <div>
