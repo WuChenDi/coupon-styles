@@ -37,7 +37,7 @@ If you are interested in this project, welcome to make a pull request and also w
 
 ## 📜 License
 
-[MIT](./LICENSE) License &copy; 2023-PRESENT [wudi](https://github.com/WuChenDi)
+[MIT](./LICENSE) License &copy; 2022-PRESENT [wudi](https://github.com/WuChenDi)
 
 <!-- ↓ Reference -->
 <!-- https://github.com/XboxYan/coupon -->
