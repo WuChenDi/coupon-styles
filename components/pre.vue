@@ -19,10 +19,10 @@ const copy = () => {
   if (pre.value?.textContent) {
     // eslint-disable-next-line ts/ban-ts-comment
     // @ts-expect-error
-    txt.value = pre.value?.textContent
+    txt.value.value = pre.value?.textContent
   }
 
-  txt.value?.select()
+  txt.value?.select?.()
   document.execCommand('copy')
   state.copied = true
   timer.value && clearTimeout(timer.value)
@@ -44,7 +44,7 @@ const copy = () => {
       :class="{ copied: state.copied }"
       @click="copy"
     ></button>
-    <textarea ref="txt" tabindex="-1" class="hidden" readonly></textarea>
+    <textarea ref="txt" tabindex="-1" class="txt-hidden" readonly></textarea>
   </div>
 </template>
 
@@ -130,7 +130,7 @@ code {
   visibility: hidden;
 }
 
-.hidden {
+.txt-hidden {
   position: absolute;
   opacity: 0;
   clip: rect(0 0 0 0);
