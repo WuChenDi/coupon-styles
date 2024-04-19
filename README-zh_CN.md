@@ -19,17 +19,9 @@
 ```bash
 git clone https://github.com/WuChenDi/coupon-styles.git
 cd coupon-styles
-pnpm install
-pnpm dev
+bun install
+bun run dev
 ```
-
-> 📢 npm 访问速度较慢，建议使用 cnpm 或者指定镜像 registry。
->
-> 📢 需要 Node.js 版本 >= 14
->
-> 📢 npm install -g pnpm
->
-> 📢 打开 http://localhost:3000
 
 ## 🤝 参与共建
 

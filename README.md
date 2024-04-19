@@ -19,17 +19,9 @@
 ```bash
 git clone https://github.com/WuChenDi/coupon-styles.git
 cd coupon-styles
-pnpm install
-pnpm dev
+bun install
+bun run dev
 ```
-
-> 📢 npm access speed is slow, recommend using cnpm or specifying a mirror registry.
->
-> 📢 requires Node.js version >=14
->
-> 📢 npm install -g pnpm
->
-> 📢 Then open http://localhost:3000
 
 ## 🤝 Participate in co-construction
 
