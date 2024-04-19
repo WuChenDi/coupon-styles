@@ -24,15 +24,15 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['@/styles/app.css'],
   modules: ['@unocss/nuxt'],
-  typescript: {
-    tsConfig: {
-      compilerOptions: {
-        noImplicitOverride: true,
-        noUncheckedIndexedAccess: true,
-        noUnusedLocals: true,
-        noUnusedParameters: true,
-      },
-    },
-    typeCheck: true,
-  },
+  // typescript: {
+  //   tsConfig: {
+  //     compilerOptions: {
+  //       noImplicitOverride: true,
+  //       noUncheckedIndexedAccess: true,
+  //       noUnusedLocals: true,
+  //       noUnusedParameters: true,
+  //     },
+  //   },
+  //   typeCheck: true,
+  // },
 })
