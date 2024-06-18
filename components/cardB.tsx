@@ -27,25 +27,22 @@ export default defineComponent({
     })
 
     watchEffect(() => {
-      if (!(rangeRef).value) {
+      if (!rangeRef.value) {
         return
       }
-      rangeRef.value.style.setProperty(
-        '--percent',
-        `${state.corner / state.max}`,
-      )
+      rangeRef.value.style.setProperty('--percent', `${state.corner / state.max}`)
     })
 
     return () => (
-      <main class="main">
-        <div class="card-con">
-          <div class="card" style={{ ...style.value }} ref={cardRef}></div>
+      <main class='main'>
+        <div class='card-con'>
+          <div class='card' style={{ ...style.value }} ref={cardRef}></div>
         </div>
-        <aside class="side">
-          <section class="item">
-            <span class="name">corner</span>
+        <aside class='side'>
+          <section class='item'>
+            <span class='name'>corner</span>
             <input
-              type="range"
+              type='range'
               ref={rangeRef}
               v-model={state.corner}
               data-tips={`${state.corner}px`}

@@ -1,11 +1,7 @@
 <template>
   <div>
-    <h1 class="font-size-16 mb-0">
-      coupon-styles
-    </h1>
-    <h2 class="font-normal">
-      Generate coupon style coding
-    </h2>
+    <h1 class="font-size-16 mb-0">coupon-styles</h1>
+    <h2 class="font-normal">Generate coupon style coding</h2>
     <a
       href="https://github.com/WuChenDi/coupon-styles"
       target="_blank"

@@ -52,68 +52,65 @@ export default defineComponent({
     })
 
     watchEffect(() => {
-      rangeRef.value?.style.setProperty(
-        '--percent',
-        `${state.radius / max.value.radius}`,
-      )
+      rangeRef.value?.style.setProperty('--percent', `${state.radius / max.value.radius}`)
       offsetRef.value?.style.setProperty(
         '--percent',
-        `${state.offset / max.value.offset}`,
+        `${state.offset / max.value.offset}`
       )
     })
 
     return () => (
-      <main class="main">
-        <div class="card-con">
-          <div class="card" style={{ ...style.value }} ref={cardRef}></div>
+      <main class='main'>
+        <div class='card-con'>
+          <div class='card' style={{ ...style.value }} ref={cardRef}></div>
         </div>
-        <aside class="side">
-          <section class="item">
-            <span class="name">radius</span>
+        <aside class='side'>
+          <section class='item'>
+            <span class='name'>radius</span>
             <input
-              type="range"
+              type='range'
               ref={rangeRef}
               v-model={state.radius}
               data-tips={`${state.radius}px`}
               max={max.value.radius}
             />
           </section>
-          <section class="item">
-            <span class="name">direction</span>
-            <label class="radio" data-tips="horizontal">
+          <section class='item'>
+            <span class='name'>direction</span>
+            <label class='radio' data-tips='horizontal'>
               <input
-                type="radio"
-                name="dir"
-                value="horizontal"
+                type='radio'
+                name='dir'
+                value='horizontal'
                 v-model={state.direction}
               />
             </label>
-            <label class="radio" data-tips="vertical">
-              <input type="radio" name="dir" value="vertical" v-model={state.direction} />
+            <label class='radio' data-tips='vertical'>
+              <input type='radio' name='dir' value='vertical' v-model={state.direction} />
             </label>
           </section>
-          <section class="item" data-direction={state.direction}>
-            <span class="name">position</span>
+          <section class='item' data-direction={state.direction}>
+            <span class='name'>position</span>
             <label
-              class="radio"
+              class='radio'
               data-tips={state.direction === 'vertical' ? 'left' : 'top'}
             >
-              <input type="radio" name="pos" value="start" v-model={state.position} />
+              <input type='radio' name='pos' value='start' v-model={state.position} />
             </label>
-            <label class="radio" data-tips="center">
-              <input type="radio" name="pos" value="center" v-model={state.position} />
+            <label class='radio' data-tips='center'>
+              <input type='radio' name='pos' value='center' v-model={state.position} />
             </label>
             <label
-              class="radio"
+              class='radio'
               data-tips={state.direction === 'vertical' ? 'right' : 'bottom'}
             >
-              <input type="radio" name="pos" value="end" v-model={state.position} />
+              <input type='radio' name='pos' value='end' v-model={state.position} />
             </label>
           </section>
-          <section class="item" v-show={state.position !== 'center'}>
-            <span class="name">offset</span>
+          <section class='item' v-show={state.position !== 'center'}>
+            <span class='name'>offset</span>
             <input
-              type="range"
+              type='range'
               ref={offsetRef}
               v-model={state.offset}
               data-tips={`${state.offset}px`}

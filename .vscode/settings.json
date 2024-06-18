@@ -1,30 +1,18 @@
 {
-  // Enable the ESlint flat config support
-  "eslint.experimental.useFlatConfig": true,
-
   // Disable the default formatter, use eslint instead
-  "prettier.enable": false,
   "editor.formatOnSave": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.enable": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
 
   // Auto fix
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit",
     "source.organizeImports": "never"
   },
-
-  // Silent the stylistic rules in you IDE, but still auto fix them
-  "eslint.rules.customizations": [
-    { "rule": "style/*", "severity": "off" },
-    { "rule": "format/*", "severity": "off" },
-    { "rule": "*-indent", "severity": "off" },
-    { "rule": "*-spacing", "severity": "off" },
-    { "rule": "*-spaces", "severity": "off" },
-    { "rule": "*-order", "severity": "off" },
-    { "rule": "*-dangle", "severity": "off" },
-    { "rule": "*-newline", "severity": "off" },
-    { "rule": "*quotes", "severity": "off" },
-    { "rule": "*semi", "severity": "off" }
-  ],
 
   // Enable eslint for all supported languages
   "eslint.validate": [
@@ -40,17 +28,17 @@
     "yaml",
     "toml"
   ],
-  "i18n-ally.localesPaths": [
-    "i18n"
-  ],
-  "i18n-ally.keystyle": "nested",
-  "i18n-ally.sortKeys": true,
-  "i18n-ally.enabledParsers": [
-    "ts"
-  ],
-  "i18n-ally.sourceLanguage": "enUs",
-  "i18n-ally.displayLanguage": "enUs",
-  "i18n-ally.parsers.typescript.compilerOptions": {
-    "moduleResolution": "node"
-  }
+  "stylelint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "toml"
+  ]
 }

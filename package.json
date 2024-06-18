@@ -14,16 +14,19 @@
     "postinstall": "nuxt prepare",
     "typecheck": "nuxt typecheck",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --check .",
+    "format:fail": "prettier --check --write ."
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.15.0",
-    "@cdlab996/prettier-config": "^0.0.6-beta.4",
-    "@unocss/nuxt": "^0.59.4",
-    "eslint": "^9.0.0",
-    "nuxt": "^3.11.2",
-    "vue": "^3.4.23",
-    "vue-router": "^4.3.2",
-    "vue-tsc": "^2.0.13"
+    "@cdlab996/eslint-config-vue": "0.0.13",
+    "@cdlab996/prettier-config": "0.0.13",
+    "@unocss/nuxt": "0.61.0",
+    "eslint": "8.57.0",
+    "nuxt": "^3.12.2",
+    "prettier": "3.3.2",
+    "vue": "^3.4.29",
+    "vue-router": "^4.3.3",
+    "vue-tsc": "^2.0.21"
   }
 }

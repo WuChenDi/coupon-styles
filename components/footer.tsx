@@ -6,9 +6,11 @@ export default defineComponent({
     const footerText = 'Copyright (c) 2022-PRESENT | '
 
     return () => (
-      <footer class="pa-8 mt-auto font-size-5">
+      <footer class='pa-8 mt-auto font-size-5'>
         {footerText}
-        <a href="https://github.com/WuChenDi" target="_blank"> wudi </a>
+        <a href='https://github.com/WuChenDi' target='_blank'>
+          wudi
+        </a>
       </footer>
     )
   },
